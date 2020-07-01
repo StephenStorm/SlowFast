@@ -101,7 +101,12 @@ def perform_test(test_loader, model, test_meter, cfg):
         test_meter.iter_tic()
 
     # Log epoch stats and print the final testing results.
-    test_meter.finalize_metrics()
+    # stephen add
+    if cfg.TRAIN.TOP5:
+        tks = (1, 5)
+    else:
+        tks = (1,)
+    test_meter.finalize_metrics(tks)
     test_meter.reset()
 
 

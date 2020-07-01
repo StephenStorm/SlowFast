@@ -5,7 +5,7 @@
 
 import torch
 
-label_pred = './data_process/data/res.txt'
+
 
 
 def topks_correct(preds, labels, ks):
@@ -40,9 +40,10 @@ def topks_correct(preds, labels, ks):
     # Compute the number of topk correct predictions for each k.
     
     
-    
+    '''
     # stephen add :
     # print('preds size : {}\nlabels size: {}'.format(top_max_k_inds.size(), labels.size()))
+    
     tlabels = labels.reshape(-1, labels.size(0))
     tmp = torch.cat((tlabels, top_max_k_inds), dim = 0)
 
@@ -50,8 +51,7 @@ def topks_correct(preds, labels, ks):
     res = np.array(tmp.t())
     # res = res.reshape(res.size, -1)
     np.savetxt(label_pred, res, '%d')
-    
-
+    '''
 
 
 

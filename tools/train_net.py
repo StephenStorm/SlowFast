@@ -100,7 +100,14 @@ def train_epoch(train_loader, model, optimizer, train_meter, cur_epoch, cfg):
                 loss = loss.item()
             else:
                 # Compute the errors.
-                num_topks_correct = metrics.topks_correct(preds, labels, (1,))
+                # stephen add
+                if cfg.TRAIN.TOP5:
+                    tks = (1,5)
+                else:
+                    tks = (1,1)
+
+                num_topks_correct = metrics.topks_correct(preds, labels, tks)
+                
                 top1_err, top5_err = [
                     (1.0 - x / preds.size(0)) * 100.0 for x in num_topks_correct
                 ]
@@ -189,7 +196,12 @@ def eval_epoch(val_loader, model, val_meter, cur_epoch, cfg):
                 val_meter.update_predictions(preds, labels)
             else:
                 # Compute the errors.
-                num_topks_correct = metrics.topks_correct(preds, labels, (1,))
+                # stephen add
+                if cfg.TRAIN.TOP5:
+                    tks = (1,5)
+                else:
+                    tks = (1,1)
+                num_topks_correct = metrics.topks_correct(preds, labels, tks)
 
                 # Combine the errors across the GPUs.
                 top1_err, top5_err = [

@@ -245,6 +245,9 @@ class TestMeter(object):
             ensemble_method (str): method to perform the ensemble, options
                 include "sum", and "max".
         """
+        # stephen add
+        self.label_pred_file = './data_process/data/res.txt'
+
         # num_videos 表示实际处理的视频数量，而不是clips的数量 len(dataeset) // (10 * 3)
         self.iter_timer = Timer()
         self.num_clips = num_clips
@@ -370,6 +373,14 @@ class TestMeter(object):
                 stats["top{}_acc".format(k)] = "{:.{prec}f}".format(
                     topk, prec=2
                 )
+            # stephen add record pred results
+            _, top_max_k_inds = torch.topk(
+                self.video_preds, max(ks), dim=1, largest=True, sorted=True
+            )
+            tlabels = self.video_labels.view(-1,1)
+            tmp = torch.cat((tlabels, top_max_k_inds), dim = 1)
+            res = tmp.numpy()
+            np.savetxt(self.label_pred_file, res, "%d")
         logging.log_json_stats(stats)
 
 
