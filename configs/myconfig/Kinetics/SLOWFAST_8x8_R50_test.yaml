@@ -62,7 +62,7 @@ TEST:
   CHECKPOINT_FILE_PATH: ./checkpoints/SLOWFAST_8x8_R50.pkl
   #CHECKPOINT_FILE_PATH: /home/stephen/workspace/ActionRecognition/SlowFast/test/checkpoints/checkpoint_epoch_00196.pyth
   CHECKPOINT_TYPE: caffe2
-  NUM_ENSEMBLE_VIEWS: 10
+  NUM_ENSEMBLE_VIEWS: 1
   NUM_SPATIAL_CROPS: 3
 DATA_LOADER:
   NUM_WORKERS: 8
