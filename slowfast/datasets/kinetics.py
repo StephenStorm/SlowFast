@@ -274,10 +274,11 @@ class Kinetics(torch.utils.data.Dataset):
                 random_horizontal_flip=self.cfg.DATA.RANDOM_FLIP,
                 inverse_uniform_sampling=self.cfg.DATA.INV_UNIFORM_SAMPLE,
             )
-
+            
+            tpath = self._path_to_videos[index]
             label = self._labels[index]
             frames = utils.pack_pathway_output(self.cfg, frames)
-            return frames, label, index, {}
+            return frames, label, index, {'path':tpath}
         else:
             raise RuntimeError(
                 "Failed to fetch video after {} retries.".format(

@@ -293,6 +293,7 @@ class TestMeter(object):
         """
         for ind in range(preds.shape[0]):
             vid_id = int(clip_ids[ind]) // self.num_clips
+            # vid_id 是相对于真实video的id，即没有进行数据增加的，没有重复的id
             if self.video_labels[vid_id].sum() > 0:
                 assert torch.equal(
                     self.video_labels[vid_id].type(torch.FloatTensor),
@@ -312,6 +313,12 @@ class TestMeter(object):
                     )
                 )
             self.clip_count[vid_id] += 1
+            print('vid:{0}, cliip_count{1}'.format(vid_id, self.clip_count[vid_id]))
+            # stephen add start  for return 
+            if self.clip_count[vid_id] == self.num_clips:
+                return torch.argmax(self.video_preds[vid_id])
+            else:
+                return None
 
     def log_iter_stats(self, cur_iter):
         """

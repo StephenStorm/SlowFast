@@ -14,6 +14,14 @@ from slowfast.datasets import loader
 from slowfast.models import build_model
 from slowfast.utils.meters import AVAMeter, TestMeter
 
+# stephen add for visualization
+import sys
+import cv2
+import pandas as pd
+from time import time
+import os
+# steohen add end
+
 logger = logging.get_logger(__name__)
 
 
@@ -36,10 +44,16 @@ def perform_test(test_loader, model, test_meter, cfg):
         cfg (CfgNode): configs. Details can be found in
             slowfast/config/defaults.py
     """
+    # stephen add ,prepare label to get class name
+    label_path = cfg.DATA.PATH_TO_LABEL
+    labels_df = pd.read_csv(label_path)
+    tlabels = labels_df['name'].values
+
+    
     # Enable eval mode.
     model.eval()
     test_meter.iter_tic()
-
+    start = time()
     for cur_iter, (inputs, labels, video_idx, meta) in enumerate(test_loader):
         # Transfer the data to the current GPU device.
         if isinstance(inputs, (list,)):
@@ -47,16 +61,18 @@ def perform_test(test_loader, model, test_meter, cfg):
                 inputs[i] = inputs[i].cuda(non_blocking=True)
         else:
             inputs = inputs.cuda(non_blocking=True)
-
+        
         # Transfer the data to the current GPU device.
         labels = labels.cuda()
         video_idx = video_idx.cuda()
+        '''
         for key, val in meta.items():
             if isinstance(val, (list,)):
                 for i in range(len(val)):
                     val[i] = val[i].cuda(non_blocking=True)
             else:
                 meta[key] = val.cuda(non_blocking=True)
+        '''
 
         if cfg.DETECTION.ENABLE:
             # Compute the predictions.
@@ -82,7 +98,6 @@ def perform_test(test_loader, model, test_meter, cfg):
         else:
             # Perform the forward pass.
             preds = model(inputs)
-
             # Gather all the predictions across all the devices to perform ensemble.
             if cfg.NUM_GPUS > 1:
                 preds, labels, video_idx = du.all_gather(
@@ -90,13 +105,85 @@ def perform_test(test_loader, model, test_meter, cfg):
                 )
 
             test_meter.iter_toc()
+            '''
+            # stephen add for visualization
+            if video_idx % 3 == 1:
+                pred_idx = torch.argmax(preds, 1).cpu()
+                label_idx = labels[0]
+                print(pred_idx)
+                cap = cv2.VideoCapture(meta['path'][0])
+                while(cap.isOpened()):
+                    ret, frame = cap.read()
+                    if ret == True:
+                        cv2.putText(frame, 'label: {}'.format(tlabels[label_idx]), (20, 20), 
+                                    fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+                                    fontScale=0.8, color=(0, 0, 255), thickness=1)
+                        cv2.putText(frame, 'pred: {}'.format(tlabels[pred_idx]), (20, 40), 
+                                    fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+                                    fontScale=0.8, color=(0, 0, 255), thickness=1)
+                        cv2.putText(frame, 'time: {:.3f}'.format(test_meter.iter_timer.seconds()), (20, 60), 
+                                    fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+                                    fontScale=0.8, color=(255, 0, 255), thickness=1)
+                        cv2.imshow('wid', frame)
+                        cv2.waitKey(30)
+                    else:
+                        if cv2.waitKey() == 27:
+                            sys.exit()
+                        break
+
+                cap.release()
+                cv2.destroyAllWindows()
+            
+            # stephen add end
+            '''
             # Update and log stats.
-            test_meter.update_stats(
+            # here origin method don't return ,but stephen add 
+            tres = test_meter.update_stats(
                 preds.detach().cpu(),
                 labels.detach().cpu(),
                 video_idx.detach().cpu(),
             )
             test_meter.log_iter_stats(cur_iter)
+
+            # stephen add for visualization
+            if tres is not None:
+                dur = time() - start
+                pred_idx = torch.argmax(preds, 1).cpu()
+                label_idx = labels[0]
+                
+                cap = cv2.VideoCapture(meta['path'][0])
+                video_writer_path = os.path.join('./test/res_video', os.path.basename(meta['path'][0]))
+                video_writer = cv2.VideoWriter(video_writer_path, cv2.VideoWriter_fourcc('X', 'V', 'I', 'D'), 30, (int(cap.get(3)), int(cap.get(4))))
+                cv2.namedWindow('wid')
+                while(cap.isOpened()):
+                    ret, frame = cap.read()
+                    if ret == True:
+                        cv2.putText(frame, 'label: {}'.format(tlabels[label_idx]), (20, 20), 
+                                    fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+                                    fontScale=0.8, color=(0, 0, 255), thickness=2)
+                        cv2.putText(frame, 'pred: {}'.format(tlabels[pred_idx]), (20, 40), 
+                                    fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+                                    fontScale=0.8, color=(0, 0, 255), thickness=2)
+                        cv2.putText(frame, 'time: {:.3f}'.format(dur), (20, 70), 
+                                    fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+                                    fontScale=0.8, color=(255, 0, 255), thickness=2)
+                        cv2.imshow('wid', frame)
+                        
+                        video_writer.write(frame)
+                        cv2.waitKey(1)
+                        #     break
+                    else:
+                        
+                        # if cv2.waitKey() == 27:
+                        #     sys.exit()
+                        break
+                video_writer.release()
+                cap.release()
+                cv2.destroyAllWindows()
+                start = time()
+            
+            # stephen add end
+            
 
         test_meter.iter_tic()
 

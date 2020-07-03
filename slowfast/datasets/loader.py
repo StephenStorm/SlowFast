@@ -102,6 +102,7 @@ def construct_loader(cfg, split, is_precise_bn=False):
         # Create a sampler for multi-process training
         sampler = DistributedSampler(dataset) if cfg.NUM_GPUS > 1 else None
         # Create a loader
+        # drop_last : 指最后一批 数量不够batch_size 的数据是否丢弃
         loader = torch.utils.data.DataLoader(
             dataset,
             batch_size=batch_size,

@@ -289,6 +289,9 @@ _C.DATA.ENSEMBLE_METHOD = "sum"
 # If True, revert the default input channel (RBG <-> BGR).
 _C.DATA.REVERSE_INPUT_CHANNEL = False
 
+# stephen add , path to label file
+_C.DATA.PATH_TO_LABEL = '/home/stephen/workspace/ActionRecognition/slowfast_pred_demo/configs/Kinetics/demo/wave.csv'
+
 
 # ---------------------------------------------------------------------------- #
 # Optimizer options
