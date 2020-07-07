@@ -146,6 +146,7 @@ def perform_test(test_loader, model, test_meter, cfg):
             test_meter.log_iter_stats(cur_iter)
 
             # stephen add for visualization
+            
             if tres is not None:
                 dur = time() - start
                 pred_idx = torch.argmax(preds, 1).cpu()
