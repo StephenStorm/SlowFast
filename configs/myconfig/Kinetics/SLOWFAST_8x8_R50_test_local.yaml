@@ -17,7 +17,9 @@ DATA:
   TEST_CROP_SIZE: 256
   INPUT_CHANNEL_NUM: [3, 3]
   PATH_TO_DATA_DIR: ./data_process/data/local
+  # PATH_TO_DATA_DIR: ./data_process/data/local
   PATH_TO_LABEL: /home/stephen/workspace/ActionRecognition/slowfast_pred_demo/configs/Kinetics/demo/kinetics_400_labels.csv
+  # PATH_TO_LABEL: /home/stephen/workspace/ActionRecognition/slowfast_pred_demo/configs/Kinetics/demo/kinetics_400_labels.csv
   ENSEMBLE_METHOD: sum
 SLOWFAST:
   ALPHA: 4
@@ -63,7 +65,7 @@ TEST:
   DATASET: kinetics
   BATCH_SIZE: 1   # to visualization ,must be 1
   CHECKPOINT_FILE_PATH: ./checkpoints/SLOWFAST_8x8_R50.pkl
-  # CHECKPOINT_FILE_PATH: /home/stephen/workspace/ActionRecognition/SlowFast/test/checkpoints/checkpoint_epoch_00196.pyth
+  # CHECKPOINT_FILE_PATH: ./train_res/checkpoints/checkpoint_epoch_00005.pyth
   CHECKPOINT_TYPE: caffe2
   NUM_ENSEMBLE_VIEWS: 1
   NUM_SPATIAL_CROPS: 3

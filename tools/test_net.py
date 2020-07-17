@@ -171,7 +171,7 @@ def perform_test(test_loader, model, test_meter, cfg):
                         cv2.imshow('wid', frame)
                         
                         video_writer.write(frame)
-                        cv2.waitKey(1)
+                        cv2.waitKey(25)
                         #     break
                     else:
                         
