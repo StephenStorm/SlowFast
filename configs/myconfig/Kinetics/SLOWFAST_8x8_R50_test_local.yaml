@@ -8,7 +8,7 @@ TRAIN:
   CHECKPOINT_FILE_PATH: /home/stephen/workspace/ActionRecognition/SlowFast/checkpoints/SLOWFAST_8x8_R50.pkl
   CHECKPOINT_TYPE: caffe2
   BATCH_SIZE: 2
-  TOP5: True
+  TOP5: False
 DATA:
   NUM_FRAMES: 32
   SAMPLING_RATE: 2
@@ -18,8 +18,8 @@ DATA:
   INPUT_CHANNEL_NUM: [3, 3]
   PATH_TO_DATA_DIR: ./data_process/data/local
   # PATH_TO_DATA_DIR: ./data_process/data/local
-  PATH_TO_LABEL: /home/stephen/workspace/ActionRecognition/slowfast_pred_demo/configs/Kinetics/demo/kinetics_400_labels.csv
   # PATH_TO_LABEL: /home/stephen/workspace/ActionRecognition/slowfast_pred_demo/configs/Kinetics/demo/kinetics_400_labels.csv
+  PATH_TO_LABEL: /home/stephen/workspace/ActionRecognition/slowfast_pred_demo/configs/Kinetics/demo/wave.csv
   ENSEMBLE_METHOD: sum
 SLOWFAST:
   ALPHA: 4
@@ -55,7 +55,7 @@ SOLVER:
   WARMUP_START_LR: 0.01
   OPTIMIZING_METHOD: sgd
 MODEL:
-  NUM_CLASSES: 400
+  NUM_CLASSES: 2
   ARCH: slowfast
   MODEL_NAME: SlowFast
   LOSS_FUNC: cross_entropy
@@ -64,9 +64,9 @@ TEST:
   ENABLE: True
   DATASET: kinetics
   BATCH_SIZE: 1   # to visualization ,must be 1
-  CHECKPOINT_FILE_PATH: ./checkpoints/SLOWFAST_8x8_R50.pkl
-  # CHECKPOINT_FILE_PATH: ./train_res/checkpoints/checkpoint_epoch_00005.pyth
-  CHECKPOINT_TYPE: caffe2
+  # CHECKPOINT_FILE_PATH: ./checkpoints/SLOWFAST_8x8_R50.pkl
+  CHECKPOINT_FILE_PATH: ./train_res/checkpoints/checkpoint_epoch_00180.pyth
+  # CHECKPOINT_TYPE: caffe2
   NUM_ENSEMBLE_VIEWS: 1
   NUM_SPATIAL_CROPS: 3
 DATA_LOADER:

@@ -388,6 +388,7 @@ class TestMeter(object):
             tmp = torch.cat((tlabels, top_max_k_inds), dim = 1)
             res = tmp.numpy()
             np.savetxt(self.label_pred_file, res, "%d")
+            
         logging.log_json_stats(stats)
 
 

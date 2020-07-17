@@ -149,7 +149,7 @@ def perform_test(test_loader, model, test_meter, cfg):
             
             if tres is not None:
                 dur = time() - start
-                pred_idx = torch.argmax(preds, 1).cpu()
+                pred_idx = tres
                 label_idx = labels[0]
                 
                 cap = cv2.VideoCapture(meta['path'][0])
