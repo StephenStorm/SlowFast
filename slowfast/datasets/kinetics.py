@@ -277,7 +277,9 @@ class Kinetics(torch.utils.data.Dataset):
             
             tpath = self._path_to_videos[index]
             label = self._labels[index]
+            # 对现有的frames怎对不同的路径产生不同的数据帧，现有的是fast，可产生slowpath way frames。返回值是list，frame_list = [slow_pathway, fast_pathway]
             frames = utils.pack_pathway_output(self.cfg, frames)
+            
             return frames, label, index, {'path':tpath}
         else:
             raise RuntimeError(

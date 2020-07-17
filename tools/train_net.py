@@ -60,6 +60,9 @@ def train_epoch(train_loader, model, optimizer, train_meter, cur_epoch, cfg):
         lr = optim.get_epoch_lr(cur_epoch + float(cur_iter) / data_size, cfg)
         optim.set_lr(optimizer, lr)
 
+        print(inputs.size())
+        
+
         if cfg.DETECTION.ENABLE:
             # Compute the predictions.
             preds = model(inputs, meta["boxes"])
