@@ -105,37 +105,6 @@ def perform_test(test_loader, model, test_meter, cfg):
                 )
 
             test_meter.iter_toc()
-            '''
-            # stephen add for visualization
-            if video_idx % 3 == 1:
-                pred_idx = torch.argmax(preds, 1).cpu()
-                label_idx = labels[0]
-                print(pred_idx)
-                cap = cv2.VideoCapture(meta['path'][0])
-                while(cap.isOpened()):
-                    ret, frame = cap.read()
-                    if ret == True:
-                        cv2.putText(frame, 'label: {}'.format(tlabels[label_idx]), (20, 20), 
-                                    fontFace=cv2.FONT_HERSHEY_SIMPLEX,
-                                    fontScale=0.8, color=(0, 0, 255), thickness=1)
-                        cv2.putText(frame, 'pred: {}'.format(tlabels[pred_idx]), (20, 40), 
-                                    fontFace=cv2.FONT_HERSHEY_SIMPLEX,
-                                    fontScale=0.8, color=(0, 0, 255), thickness=1)
-                        cv2.putText(frame, 'time: {:.3f}'.format(test_meter.iter_timer.seconds()), (20, 60), 
-                                    fontFace=cv2.FONT_HERSHEY_SIMPLEX,
-                                    fontScale=0.8, color=(255, 0, 255), thickness=1)
-                        cv2.imshow('wid', frame)
-                        cv2.waitKey(30)
-                    else:
-                        if cv2.waitKey() == 27:
-                            sys.exit()
-                        break
-
-                cap.release()
-                cv2.destroyAllWindows()
-            
-            # stephen add end
-            '''
             # Update and log stats.
             # here origin method don't return ,but stephen add 
             tres = test_meter.update_stats(
@@ -153,9 +122,12 @@ def perform_test(test_loader, model, test_meter, cfg):
                 label_idx = labels[0]
                 
                 cap = cv2.VideoCapture(meta['path'][0])
-                video_writer_path = os.path.join('./test/res_video', os.path.basename(meta['path'][0]))
+                if pred_idx != label_idx:
+                    video_writer_path = os.path.join('./test/checkpoint_300/20200721_park_9clips/fail', os.path.basename(meta['path'][0]))
+                else:
+                    video_writer_path = os.path.join('./test/checkpoint_300/20200721_park_9clips/success', os.path.basename(meta['path'][0]))
                 video_writer = cv2.VideoWriter(video_writer_path, cv2.VideoWriter_fourcc('X', 'V', 'I', 'D'), 30, (int(cap.get(3)), int(cap.get(4))))
-                cv2.namedWindow('wid')
+                # cv2.namedWindow('wid')
                 while(cap.isOpened()):
                     ret, frame = cap.read()
                     if ret == True:
@@ -168,10 +140,10 @@ def perform_test(test_loader, model, test_meter, cfg):
                         cv2.putText(frame, 'time: {:.3f}'.format(dur), (20, 70), 
                                     fontFace=cv2.FONT_HERSHEY_SIMPLEX,
                                     fontScale=0.8, color=(255, 0, 255), thickness=2)
-                        cv2.imshow('wid', frame)
+                        # cv2.imshow('wid', frame)
                         
                         video_writer.write(frame)
-                        cv2.waitKey(25)
+                        cv2.waitKey(1)
                         #     break
                     else:
                         
@@ -181,6 +153,8 @@ def perform_test(test_loader, model, test_meter, cfg):
                 video_writer.release()
                 cap.release()
                 cv2.destroyAllWindows()
+
+
                 start = time()
             
             # stephen add end
