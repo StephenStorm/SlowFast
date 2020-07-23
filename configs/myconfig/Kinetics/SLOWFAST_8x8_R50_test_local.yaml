@@ -20,7 +20,7 @@ DATA:
   # PATH_TO_DATA_DIR: ./data_process/data/local
   # PATH_TO_LABEL: /home/stephen/workspace/ActionRecognition/slowfast_pred_demo/configs/Kinetics/demo/kinetics_400_labels.csv
   PATH_TO_LABEL: /home/stephen/workspace/ActionRecognition/slowfast_pred_demo/configs/Kinetics/demo/wave.csv
-  ENSEMBLE_METHOD: sum
+  ENSEMBLE_METHOD: max
 SLOWFAST:
   ALPHA: 4
   BETA_INV: 8
@@ -65,7 +65,7 @@ TEST:
   DATASET: kinetics
   BATCH_SIZE: 1   # to visualization ,must be 1
   # CHECKPOINT_FILE_PATH: ./checkpoints/SLOWFAST_8x8_R50.pkl
-  CHECKPOINT_FILE_PATH: /home/stephen/workspace/ActionRecognition/my_SlowFast/test/checkpoints/self_park_20200720/checkpoint_epoch_00300.pyth
+  CHECKPOINT_FILE_PATH: /home/stephen/workspace/ActionRecognition/my_SlowFast/test/checkpoints/checkpoints_20200722_gauss/checkpoint_epoch_00050.pyth
   # CHECKPOINT_TYPE: caffe2
   NUM_ENSEMBLE_VIEWS: 3
   NUM_SPATIAL_CROPS: 3

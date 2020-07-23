@@ -123,9 +123,9 @@ def perform_test(test_loader, model, test_meter, cfg):
                 
                 cap = cv2.VideoCapture(meta['path'][0])
                 if pred_idx != label_idx:
-                    video_writer_path = os.path.join('./test/checkpoint_300/20200721_park_9clips/fail', os.path.basename(meta['path'][0]))
+                    video_writer_path = os.path.join('./test/checkpoint_gauss/checkpoint30_clips9_max/fail', os.path.basename(meta['path'][0]))
                 else:
-                    video_writer_path = os.path.join('./test/checkpoint_300/20200721_park_9clips/success', os.path.basename(meta['path'][0]))
+                    video_writer_path = os.path.join('./test/checkpoint_gauss/checkpoint30_clips9_max/success', os.path.basename(meta['path'][0]))
                 video_writer = cv2.VideoWriter(video_writer_path, cv2.VideoWriter_fourcc('X', 'V', 'I', 'D'), 30, (int(cap.get(3)), int(cap.get(4))))
                 # cv2.namedWindow('wid')
                 while(cap.isOpened()):
@@ -143,7 +143,7 @@ def perform_test(test_loader, model, test_meter, cfg):
                         # cv2.imshow('wid', frame)
                         
                         video_writer.write(frame)
-                        cv2.waitKey(1)
+                        # cv2.waitKey(1)
                         #     break
                     else:
                         
