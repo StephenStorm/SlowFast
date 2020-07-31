@@ -1,0 +1,37 @@
+import os
+import re
+
+
+valfile = './data_process/data/trainlist.txt'
+
+test_csv = './data_process/data/train_all.csv'
+
+# kinetics = '/home/yhzn/dataset/Kinetics'
+kinetics = '/home/stephen/workspace/Data/Kinetics/'
+
+positive_label = 398 # yogo
+
+with open(valfile, 'r') as vallist, open(test_csv, 'w') as test:
+    for line in vallist:
+        path_label = line.split(' ')
+        path = path_label[0]
+        label = int(path_label[1])
+        if label == positive_label:
+            label = 1
+        else:
+            label = 0
+        paths = path.split('/')
+        video_dir = paths[-2].replace('_', ' ')
+        video_name = paths[-1].split('.')[0]
+        # print('{0}\{1}'.format(video_dir, video_name))
+        target_dir = os.path.join(kinetics, video_dir)
+        try:
+            video_names = os.listdir(target_dir)
+        except FileNotFoundError:
+            continue
+        # print(video_names)
+        for name in video_names:
+            if re.match(video_name + '*', name):
+                video_path = os.path.join(target_dir, name)
+                test.write('{},{}\n'.format(video_path, label))
+                

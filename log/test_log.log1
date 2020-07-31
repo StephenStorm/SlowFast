@@ -1,0 +1,577 @@
+Reading engine from file slowfast_sim.trt
+inputs dim:2, outputs dim: 1
+[0.95066607 0.04933392]
+[0.9735005  0.02649955]
+[0.9898016  0.01019838]
+predict res: not_wave, ground_truth: not_wave
+[0.9884207  0.01157928]
+[0.98776484 0.01223513]
+[0.9951148  0.00488518]
+predict res: not_wave, ground_truth: not_wave
+[0.92395175 0.07604822]
+[0.9093103  0.09068976]
+[0.89433324 0.10566675]
+predict res: not_wave, ground_truth: not_wave
+[0.8736732 0.1263268]
+[0.94291306 0.0570869 ]
+[0.9859674  0.01403261]
+predict res: not_wave, ground_truth: not_wave
+[0.9962228  0.00377719]
+[0.9972624 0.0027376]
+[0.9973421  0.00265785]
+predict res: not_wave, ground_truth: not_wave
+[0.96048343 0.03951661]
+[0.9737463  0.02625373]
+[0.9616166  0.03838347]
+predict res: not_wave, ground_truth: not_wave
+[0.91512704 0.08487297]
+[0.923784   0.07621597]
+[0.97841203 0.02158795]
+predict res: not_wave, ground_truth: not_wave
+[0.60084105 0.399159  ]
+[0.5410739  0.45892605]
+[0.629339   0.37066105]
+predict res: not_wave, ground_truth: not_wave
+[0.90885234 0.09114766]
+[0.83333147 0.16666852]
+[0.7790962  0.22090387]
+predict res: not_wave, ground_truth: not_wave
+[0.47649512 0.5235049 ]
+[0.60009044 0.39990956]
+[0.37801927 0.6219807 ]
+/home/stephen/workspace/Data/wave_stop/resized_clips/negative_resized/clips61559.mp4
+res: [1.45460483 1.5453952 ]
+------------------------------------------------------------
+predict res: wave, ground_truth: not_wave
+[9.99892831e-01 1.07143394e-04]
+[0.9985623  0.00143773]
+[0.9668962  0.03310387]
+predict res: not_wave, ground_truth: not_wave
+[0.00500014 0.9949999 ]
+[0.00231851 0.99768144]
+[0.01918581 0.9808142 ]
+/home/stephen/workspace/Data/wave_stop/resized_clips/negative_resized/clips59820.mp4
+res: [0.02650446 2.97349554]
+------------------------------------------------------------
+predict res: wave, ground_truth: not_wave
+[0.5862733 0.4137267]
+[0.81326705 0.18673295]
+[0.8990083  0.10099176]
+predict res: not_wave, ground_truth: not_wave
+[0.01225104 0.9877489 ]
+[0.00822772 0.9917723 ]
+[0.00337072 0.99662924]
+/home/stephen/workspace/Data/wave_stop/resized_clips/negative_resized/clips62211.mp4
+res: [0.02384948 2.97615045]
+------------------------------------------------------------
+predict res: wave, ground_truth: not_wave
+[0.99659765 0.00340235]
+[0.9775264  0.02247353]
+[0.98368955 0.01631043]
+predict res: not_wave, ground_truth: not_wave
+[0.9840553  0.01594467]
+[0.9782349  0.02176514]
+[0.9742871  0.02571287]
+predict res: not_wave, ground_truth: not_wave
+[0.8410542  0.15894577]
+[0.75589156 0.24410842]
+[0.54110557 0.45889443]
+predict res: not_wave, ground_truth: not_wave
+[0.7874318 0.2125682]
+[0.6891928  0.31080726]
+[0.41047993 0.58952004]
+predict res: not_wave, ground_truth: not_wave
+[0.7033861 0.2966139]
+[0.62063354 0.3793664 ]
+[0.32510865 0.67489135]
+predict res: not_wave, ground_truth: not_wave
+[9.9965125e-01 3.4872914e-04]
+[9.9980813e-01 1.9186469e-04]
+[0.99869525 0.00130476]
+predict res: not_wave, ground_truth: not_wave
+[0.8659289  0.13407111]
+[0.761771   0.23822896]
+[0.5822676  0.41773242]
+predict res: not_wave, ground_truth: not_wave
+[0.99677277 0.00322728]
+[0.9988411  0.00115891]
+[0.9918022  0.00819782]
+predict res: not_wave, ground_truth: not_wave
+[0.9170863  0.08291367]
+[0.92182153 0.07817845]
+[0.8849958 0.1150042]
+predict res: not_wave, ground_truth: not_wave
+[0.37612128 0.6238787 ]
+[0.8536227  0.14637731]
+[0.709952   0.29004803]
+predict res: not_wave, ground_truth: not_wave
+[0.99309313 0.00690686]
+[0.9715484  0.02845163]
+[0.97011364 0.02988636]
+predict res: not_wave, ground_truth: not_wave
+[0.17839007 0.8216099 ]
+[0.20495968 0.79504025]
+[0.08468445 0.9153155 ]
+/home/stephen/workspace/Data/wave_stop/resized_clips/negative_resized/clips246879.mp4
+res: [0.46803419 2.53196567]
+------------------------------------------------------------
+predict res: wave, ground_truth: not_wave
+[0.98085123 0.01914872]
+[0.8769219  0.12307807]
+[0.86915594 0.13084401]
+predict res: not_wave, ground_truth: not_wave
+[0.93019825 0.06980173]
+[0.8706196 0.1293804]
+[0.7893015  0.21069849]
+predict res: not_wave, ground_truth: not_wave
+[0.86814135 0.13185859]
+[0.6911803  0.30881968]
+[0.6694067 0.3305933]
+predict res: not_wave, ground_truth: not_wave
+[9.9926394e-01 7.3607190e-04]
+[9.9957311e-01 4.2686003e-04]
+[0.9958751  0.00412486]
+predict res: not_wave, ground_truth: not_wave
+[0.98128414 0.01871586]
+[0.97031116 0.02968883]
+[0.8828129  0.11718706]
+predict res: not_wave, ground_truth: not_wave
+[0.48712724 0.51287276]
+[0.73464805 0.26535192]
+[0.7425299  0.25747013]
+predict res: not_wave, ground_truth: not_wave
+[0.9779398  0.02206025]
+[0.9193595  0.08064051]
+[0.75891435 0.24108568]
+predict res: not_wave, ground_truth: not_wave
+[0.88444465 0.11555537]
+[0.9302169  0.06978313]
+[0.9480413  0.05195867]
+predict res: not_wave, ground_truth: not_wave
+[0.98126054 0.01873949]
+[0.9624138  0.03758618]
+[0.80539197 0.19460805]
+predict res: not_wave, ground_truth: not_wave
+[0.7185459  0.28145406]
+[0.80640537 0.19359465]
+[0.7265715  0.27342853]
+predict res: not_wave, ground_truth: not_wave
+[0.46255502 0.537445  ]
+[0.00609194 0.99390805]
+[0.2377858 0.7622142]
+/home/stephen/workspace/Data/wave_stop/resized_clips/negative_resized/clips61009.mp4
+res: [0.70643276 2.29356724]
+------------------------------------------------------------
+predict res: wave, ground_truth: not_wave
+[0.9824713  0.01752876]
+[0.9971432  0.00285685]
+[0.99536335 0.00463662]
+predict res: not_wave, ground_truth: not_wave
+[0.772907   0.22709297]
+[0.8712902  0.12870987]
+[0.9110017  0.08899829]
+predict res: not_wave, ground_truth: not_wave
+[0.9962986  0.00370137]
+[9.9955142e-01 4.4855938e-04]
+[0.9925847  0.00741532]
+predict res: not_wave, ground_truth: not_wave
+[0.21222427 0.7877757 ]
+[0.28861126 0.71138877]
+[0.104194   0.89580595]
+/home/stephen/workspace/Data/wave_stop/resized_clips/negative_resized/clips59232.mp4
+res: [0.60502954 2.39497042]
+------------------------------------------------------------
+predict res: wave, ground_truth: not_wave
+[9.9997866e-01 2.1278223e-05]
+[9.9996549e-01 3.4519293e-05]
+[9.9977070e-01 2.2928588e-04]
+predict res: not_wave, ground_truth: not_wave
+[0.8235768  0.17642322]
+[0.8072962  0.19270375]
+[0.56003296 0.43996704]
+predict res: not_wave, ground_truth: not_wave
+[9.9981403e-01 1.8597815e-04]
+[9.9987864e-01 1.2137774e-04]
+[9.992684e-01 7.315298e-04]
+predict res: not_wave, ground_truth: not_wave
+[9.9947643e-01 5.2354002e-04]
+[9.9946785e-01 5.3214212e-04]
+[9.990492e-01 9.508239e-04]
+predict res: not_wave, ground_truth: not_wave
+[0.7433469  0.25665313]
+[0.1428078 0.8571922]
+[0.02828891 0.9717111 ]
+/home/stephen/workspace/Data/wave_stop/resized_clips/negative_resized/clips60333.mp4
+res: [0.91444364 2.08555645]
+------------------------------------------------------------
+predict res: wave, ground_truth: not_wave
+[0.43576017 0.56423986]
+[0.6908349  0.30916518]
+[0.7444287 0.2555713]
+predict res: not_wave, ground_truth: not_wave
+[0.9978757  0.00212434]
+[0.99693453 0.00306545]
+[0.9974091  0.00259088]
+predict res: not_wave, ground_truth: not_wave
+[9.9947119e-01 5.2878936e-04]
+[9.996977e-01 3.022867e-04]
+[0.99837613 0.00162386]
+predict res: not_wave, ground_truth: not_wave
+[0.821485   0.17851505]
+[0.72686267 0.2731374 ]
+[0.691079   0.30892104]
+predict res: not_wave, ground_truth: not_wave
+[0.9794133  0.02058668]
+[0.98251164 0.01748841]
+[0.96848094 0.03151906]
+predict res: not_wave, ground_truth: not_wave
+[0.96025234 0.03974767]
+[0.9891994  0.01080064]
+[0.972766   0.02723402]
+predict res: not_wave, ground_truth: not_wave
+[0.9431482  0.05685178]
+[0.9686827  0.03131731]
+[0.83909875 0.16090126]
+predict res: not_wave, ground_truth: not_wave
+[0.80777115 0.19222887]
+[0.77507985 0.2249202 ]
+[0.6930709 0.3069291]
+predict res: not_wave, ground_truth: not_wave
+[0.99704313 0.00295683]
+[0.994437   0.00556308]
+[0.9560693 0.0439307]
+predict res: not_wave, ground_truth: not_wave
+[0.8042851  0.19571488]
+[0.55046487 0.44953513]
+[0.6794592  0.32054076]
+predict res: not_wave, ground_truth: not_wave
+[0.78033656 0.21966341]
+[0.8361857  0.16381429]
+[0.89241636 0.1075836 ]
+predict res: not_wave, ground_truth: not_wave
+[0.99872434 0.00127571]
+[0.9978098  0.00219016]
+[0.99810874 0.00189124]
+predict res: not_wave, ground_truth: not_wave
+[1.6792210e-06 9.9999833e-01]
+[4.882196e-07 9.999995e-01]
+[1.07950955e-05 9.99989212e-01]
+predict res: wave, ground_truth: wave
+[0.03891937 0.9610807 ]
+[0.6884931  0.31150693]
+[0.67831385 0.32168612]
+predict res: wave, ground_truth: wave
+[1.8316683e-05 9.9998164e-01]
+[0.00428369 0.9957163 ]
+[0.31583437 0.6841656 ]
+predict res: wave, ground_truth: wave
+[0.49129376 0.50870633]
+[0.01551761 0.9844824 ]
+[1.9733631e-04 9.9980271e-01]
+predict res: wave, ground_truth: wave
+[0.00771225 0.99228776]
+[7.0531684e-08 9.9999994e-01]
+[6.069035e-09 1.000000e+00]
+predict res: wave, ground_truth: wave
+[0.4454313 0.5545687]
+[0.0257967 0.9742033]
+[4.744809e-04 9.995254e-01]
+predict res: wave, ground_truth: wave
+[0.01390729 0.9860927 ]
+[0.02456008 0.9754399 ]
+[0.00801787 0.99198216]
+predict res: wave, ground_truth: wave
+[0.24732032 0.75267965]
+[0.00116224 0.99883777]
+[1.9666630e-05 9.9998033e-01]
+predict res: wave, ground_truth: wave
+[0.08019447 0.9198055 ]
+[0.5324582  0.46754184]
+[0.06387906 0.936121  ]
+predict res: wave, ground_truth: wave
+[0.9786265  0.02137354]
+[0.98706114 0.01293891]
+[0.97839034 0.02160959]
+/home/stephen/workspace/Data/wave_stop/resized_clips/wave_resized/clips62114.mp4
+res: [2.94407797 0.05592203]
+------------------------------------------------------------
+predict res: not_wave, ground_truth: wave
+[0.09321377 0.90678626]
+[0.10065578 0.8993442 ]
+[0.25299013 0.7470099 ]
+predict res: wave, ground_truth: wave
+[0.01247631 0.98752373]
+[1.20695775e-04 9.99879241e-01]
+[0.00186819 0.99813175]
+predict res: wave, ground_truth: wave
+[1.0809291e-06 9.9999893e-01]
+[1.8094373e-07 9.9999982e-01]
+[4.0646418e-07 9.9999958e-01]
+predict res: wave, ground_truth: wave
+[0.93188787 0.06811212]
+[0.7893884  0.21061161]
+[0.83755714 0.16244286]
+/home/stephen/workspace/Data/wave_stop/resized_clips/wave_resized/clips60298.mp4
+res: [2.55883342 0.44116659]
+------------------------------------------------------------
+predict res: not_wave, ground_truth: wave
+[4.698206e-05 9.999530e-01]
+[4.23272e-09 1.00000e+00]
+[2.3518556e-08 1.0000000e+00]
+predict res: wave, ground_truth: wave
+[1.4739840e-06 9.9999857e-01]
+[6.1437365e-04 9.9938560e-01]
+[1.3294706e-05 9.9998671e-01]
+predict res: wave, ground_truth: wave
+[0.54906315 0.45093685]
+[0.6048172 0.3951828]
+[0.8365526  0.16344737]
+/home/stephen/workspace/Data/wave_stop/resized_clips/wave_resized/clips62131.mp4
+res: [1.99043298 1.00956701]
+------------------------------------------------------------
+predict res: not_wave, ground_truth: wave
+[3.29236e-08 1.00000e+00]
+[9.70382e-09 1.00000e+00]
+[2.4139748e-09 1.0000000e+00]
+predict res: wave, ground_truth: wave
+[0.03016842 0.9698316 ]
+[1.4921609e-05 9.9998510e-01]
+[2.1136332e-06 9.9999785e-01]
+predict res: wave, ground_truth: wave
+[2.3516386e-06 9.9999762e-01]
+[4.3858912e-05 9.9995613e-01]
+[1.3638931e-05 9.9998641e-01]
+predict res: wave, ground_truth: wave
+[0.0052259 0.9947741]
+[0.00809555 0.99190444]
+[0.48447382 0.51552624]
+predict res: wave, ground_truth: wave
+[0.00735443 0.9926455 ]
+[5.168350e-07 9.999995e-01]
+[6.998311e-07 9.999993e-01]
+predict res: wave, ground_truth: wave
+[0.96921486 0.03078511]
+[0.9941323  0.00586773]
+[0.9981828  0.00181726]
+/home/stephen/workspace/Data/wave_stop/resized_clips/wave_resized/clips61478.mp4
+res: [2.96152991 0.03847009]
+------------------------------------------------------------
+predict res: not_wave, ground_truth: wave
+[0.02622661 0.9737734 ]
+[0.08335106 0.9166489 ]
+[0.01012915 0.98987085]
+predict res: wave, ground_truth: wave
+[1.3500852e-08 1.0000000e+00]
+[2.0813243e-08 1.0000000e+00]
+[0.00168709 0.99831295]
+predict res: wave, ground_truth: wave
+[0.17250338 0.82749665]
+[6.726382e-05 9.999327e-01]
+[5.445560e-07 9.999994e-01]
+predict res: wave, ground_truth: wave
+[0.00403791 0.99596214]
+[0.00521616 0.9947838 ]
+[0.00317866 0.99682134]
+predict res: wave, ground_truth: wave
+[1.3935786e-06 9.9999863e-01]
+[6.565439e-11 1.000000e+00]
+[7.142337e-07 9.999993e-01]
+predict res: wave, ground_truth: wave
+[0.00279449 0.9972055 ]
+[0.02835334 0.97164667]
+[0.00598346 0.9940165 ]
+predict res: wave, ground_truth: wave
+[4.1599080e-08 9.9999994e-01]
+[1.03775704e-07 9.99999881e-01]
+[4.1637334e-09 1.0000000e+00]
+predict res: wave, ground_truth: wave
+[0.36972252 0.6302775 ]
+[8.9038331e-05 9.9991095e-01]
+[5.0741528e-07 9.9999946e-01]
+predict res: wave, ground_truth: wave
+[2.7133636e-05 9.9997282e-01]
+[1.0473066e-05 9.9998951e-01]
+[0.7627263  0.23727365]
+predict res: wave, ground_truth: wave
+[8.300303e-05 9.999170e-01]
+[6.9246774e-08 9.9999988e-01]
+[1.5630347e-06 9.9999845e-01]
+predict res: wave, ground_truth: wave
+[0.9959898  0.00401025]
+[0.50192994 0.49807006]
+[3.6550534e-04 9.9963450e-01]
+predict res: wave, ground_truth: wave
+[0.00111482 0.9988852 ]
+[3.0119113e-06 9.9999690e-01]
+[5.4004840e-06 9.9999464e-01]
+predict res: wave, ground_truth: wave
+[0.21780759 0.7821924 ]
+[0.30551124 0.69448876]
+[0.2739296 0.7260704]
+predict res: wave, ground_truth: wave
+[0.0130135 0.9869865]
+[1.2118034e-06 9.9999881e-01]
+[7.359171e-06 9.999926e-01]
+predict res: wave, ground_truth: wave
+[0.01054882 0.98945117]
+[2.1096058e-08 1.0000000e+00]
+[6.003651e-08 1.000000e+00]
+predict res: wave, ground_truth: wave
+[2.2364671e-05 9.9997759e-01]
+[1.1735507e-05 9.9998826e-01]
+[0.00136575 0.9986343 ]
+predict res: wave, ground_truth: wave
+[9.998810e-01 1.189606e-04]
+[0.9876072  0.01239282]
+[0.78079426 0.2192057 ]
+/home/stephen/workspace/Data/wave_stop/resized_clips/wave_resized/clips62383.mp4
+res: [2.76828247 0.23171749]
+------------------------------------------------------------
+predict res: not_wave, ground_truth: wave
+[1.4181065e-04 9.9985814e-01]
+[8.5798625e-08 9.9999988e-01]
+[1.989140e-06 9.999981e-01]
+predict res: wave, ground_truth: wave
+[0.31040797 0.689592  ]
+[0.38519093 0.6148091 ]
+[0.8440527  0.15594734]
+/home/stephen/workspace/Data/wave_stop/resized_clips/wave_resized/clips60353.mp4
+res: [1.53965157 1.46034844]
+------------------------------------------------------------
+predict res: not_wave, ground_truth: wave
+[0.00896179 0.9910382 ]
+[3.2689618e-06 9.9999672e-01]
+[8.8367733e-07 9.9999911e-01]
+predict res: wave, ground_truth: wave
+[1.5233920e-06 9.9999845e-01]
+[1.3575503e-10 1.0000000e+00]
+[6.291714e-11 1.000000e+00]
+predict res: wave, ground_truth: wave
+[0.00538007 0.99461997]
+[9.240624e-07 9.999991e-01]
+[1.062242e-06 9.999989e-01]
+predict res: wave, ground_truth: wave
+[0.52757156 0.47242844]
+[0.37022513 0.6297749 ]
+[0.00804011 0.99195987]
+predict res: wave, ground_truth: wave
+[0.79671645 0.20328361]
+[0.79694164 0.20305839]
+[0.7293355  0.27066454]
+/home/stephen/workspace/Data/wave_stop/resized_clips/wave_resized/clips62148.mp4
+res: [2.32299358 0.67700654]
+------------------------------------------------------------
+predict res: not_wave, ground_truth: wave
+[3.1864734e-06 9.9999678e-01]
+[3.1605256e-07 9.9999964e-01]
+[1.0336326e-04 9.9989665e-01]
+predict res: wave, ground_truth: wave
+[1.0190566e-05 9.9998981e-01]
+[1.2538445e-04 9.9987459e-01]
+[0.01732343 0.98267657]
+predict res: wave, ground_truth: wave
+[0.12722854 0.8727715 ]
+[0.22325693 0.77674305]
+[0.6985172  0.30148277]
+predict res: wave, ground_truth: wave
+[0.5763539 0.4236461]
+[0.02599251 0.9740075 ]
+[0.03429962 0.9657004 ]
+predict res: wave, ground_truth: wave
+[0.52146876 0.4785312 ]
+[0.08109631 0.91890365]
+[0.00647889 0.9935211 ]
+predict res: wave, ground_truth: wave
+[7.1441245e-05 9.9992859e-01]
+[9.5281518e-07 9.9999905e-01]
+[4.0446328e-05 9.9995959e-01]
+predict res: wave, ground_truth: wave
+[6.4669837e-07 9.9999940e-01]
+[3.8989592e-06 9.9999607e-01]
+[9.823017e-07 9.999990e-01]
+predict res: wave, ground_truth: wave
+[0.05279231 0.9472077 ]
+[9.489546e-06 9.999905e-01]
+[1.168584e-05 9.999883e-01]
+predict res: wave, ground_truth: wave
+[0.33659965 0.6634003 ]
+[0.18647018 0.8135298 ]
+[0.8480247  0.15197529]
+predict res: wave, ground_truth: wave
+[1.1600103e-04 9.9988401e-01]
+[2.8510820e-04 9.9971485e-01]
+[1.0532702e-04 9.9989462e-01]
+predict res: wave, ground_truth: wave
+[0.84657246 0.15342754]
+[0.49258453 0.50741553]
+[0.44684666 0.55315334]
+/home/stephen/workspace/Data/wave_stop/resized_clips/wave_resized/clips61301.mp4
+res: [1.78600365 1.21399641]
+------------------------------------------------------------
+predict res: not_wave, ground_truth: wave
+[0.99298024 0.00701976]
+[0.98664796 0.013352  ]
+[0.84930825 0.15069179]
+/home/stephen/workspace/Data/wave_stop/resized_clips/wave_resized/clips62372.mp4
+res: [2.82893646 0.17106355]
+------------------------------------------------------------
+predict res: not_wave, ground_truth: wave
+[0.32721567 0.6727843 ]
+[5.467708e-04 9.994532e-01]
+[5.5039663e-07 9.9999940e-01]
+predict res: wave, ground_truth: wave
+[6.7388696e-06 9.9999332e-01]
+[1.1546684e-07 9.9999988e-01]
+[1.5877338e-06 9.9999845e-01]
+predict res: wave, ground_truth: wave
+[0.9797516  0.02024842]
+[0.9774129  0.02258714]
+[0.91297096 0.08702906]
+/home/stephen/workspace/Data/wave_stop/resized_clips/wave_resized/clips62266.mp4
+res: [2.87013543 0.12986463]
+------------------------------------------------------------
+predict res: not_wave, ground_truth: wave
+[0.29305726 0.70694274]
+[3.1016045e-04 9.9968982e-01]
+[0.00542794 0.99457204]
+predict res: wave, ground_truth: wave
+[0.00698754 0.9930124 ]
+[0.02061462 0.9793854 ]
+[0.02231101 0.97768897]
+predict res: wave, ground_truth: wave
+[0.76106745 0.23893252]
+[0.26973683 0.73026323]
+[0.22904539 0.7709546 ]
+predict res: wave, ground_truth: wave
+[0.00728111 0.9927188 ]
+[6.648467e-04 9.993351e-01]
+[0.01360321 0.9863968 ]
+predict res: wave, ground_truth: wave
+[5.3322947e-07 9.9999940e-01]
+[4.6296137e-08 1.0000000e+00]
+[2.5786306e-07 9.9999976e-01]
+predict res: wave, ground_truth: wave
+[0.36399353 0.6360065 ]
+[5.238934e-07 9.999995e-01]
+[7.22695e-08 1.00000e+00]
+predict res: wave, ground_truth: wave
+[0.6209966  0.37900335]
+[0.48511502 0.514885  ]
+[0.6140958 0.3859042]
+/home/stephen/workspace/Data/wave_stop/resized_clips/wave_resized/clips61404.mp4
+res: [1.72020742 1.27979255]
+------------------------------------------------------------
+predict res: not_wave, ground_truth: wave
+[6.5562854e-06 9.9999344e-01]
+[6.280953e-07 9.999994e-01]
+[9.0328456e-07 9.9999917e-01]
+predict res: wave, ground_truth: wave
+[0.03211821 0.9678818 ]
+[5.1938184e-08 9.9999994e-01]
+[5.5978004e-12 1.0000000e+00]
+predict res: wave, ground_truth: wave
+[0.00208847 0.9979115 ]
+[6.067786e-04 9.993932e-01]
+[0.04776812 0.9522319 ]
+predict res: wave, ground_truth: wave
+accuracy: 86.154

@@ -1,0 +1,1 @@
+nohup python tools/run_net.py --cfg configs/myconfig/Kinetics/SLOWFAST_8x8_R50_test.yaml > log/test.log 2>&1 &
