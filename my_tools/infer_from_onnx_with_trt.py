@@ -224,7 +224,7 @@ def get_engine(onnx_file_path, engine_file_path=""):
         """Takes an ONNX file and creates a TensorRT engine to run inference with"""
         EXPLICIT_BATCH = 1 << (int)(trt.NetworkDefinitionCreationFlag.EXPLICIT_BATCH)
         with trt.Builder(TRT_LOGGER) as builder, builder.create_network(EXPLICIT_BATCH) as network, trt.OnnxParser(network, TRT_LOGGER) as parser:
-            builder.max_workspace_size = 1 << 28 # 256MiB
+            builder.max_workspace_size = 1 << 30 # 256MiB
             builder.max_batch_size = 1
             # Parse model file
             if not os.path.exists(onnx_file_path):
@@ -403,7 +403,7 @@ def infer_with_dataset():
     """Create a TensorRT engine for ONNX-based slowfast and run inference."""
     # Try to load a previously generated YOLOv3-608 network graph in ONNX format:
     onnx_file_path = 'test_sim.onnx'
-    engine_file_path = "slowfast_sim.trt"
+    engine_file_path = "/home/stephen/workspace/ActionRecognition/onnx_trt/from_mul_batch_sim_with_trtexec.trt"
     # input_video_path = '/home/stephen/workspace/Data/wave_stop/resized_clips/wave_resized/clips59179.mp4'
 
     cfg_file = '/home/stephen/workspace/ActionRecognition/my_SlowFast/configs/myconfig/Kinetics/SLOWFAST_8x8_R50_test_local.yaml'
