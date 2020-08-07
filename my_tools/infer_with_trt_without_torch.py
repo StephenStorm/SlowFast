@@ -108,6 +108,78 @@ def get_inputs_from_video(video_path):
     print('final slow:{},final fast:{}'.format(slow.shape, fast.shape))
     return [slow, fast]
 
+def get_inputs_from_cam(cam_id, wid_name):
+    mean = np.array([0.45, 0.45, 0.45])
+    std = np.array([0.225, 0.225, 0.225])
+    sampling_rate = 4
+    alpha = 4
+    cap = cv2.VideoCapture(cam_id)
+    cam_set_width = 1280
+    cam_set_height = 720
+    width = 640 
+    height = 480
+    cap.set(4, cam_set_height) # height
+    cap.set(3, cam_set_width * 2) # width
+    count = 0
+
+    
+    # print('origin height:{}, origin width {}'.format(height, width))
+    # 决定resize尺寸
+    new_width = size
+    new_height = size
+
+    if width < height:
+        new_height = int(math.floor((float(height) / width) * size))
+    else:
+        new_width = int(math.floor((float(width) / height) * size))
+    print('new width: {}, new height: {}'.format(new_width, new_height))
+    
+    total_frames = np.zeros((frames_fast, new_height, new_width, channel))
+    while cap.isOpened():
+        res, frame = cap.read()
+        if res and count < frames_fast :
+            if count % sampling_rate == 0:
+                # 取出做相机画面
+                frame = frame[:cam_set_height, :cam_set_width, :]
+                # resize 成训练的大小
+                frame = cv2.resize(frame, (width, height))
+                tmp = cv2.resize(frame, (new_width, new_height))
+                cv2.imshow(wid_name, tmp)
+                # cv2.waitKey(60)
+                tmp = cv2.cvtColor(tmp, cv2.COLOR_BGR2RGB)
+                tmp = tmp / 255.0
+                tmp = tmp - mean
+                tmp = tmp / std
+                # plt.imshow(tmp)
+                # plt.pause(0.0001)
+                total_frames[count] = tmp
+            count = count + 1
+        else :
+            break
+    
+    # t, w, h, c -> c, t, w, c
+    total_frames = np.transpose(total_frames, [3, 0, 1, 2])
+    fast = np.zeros((3, 3, frames_fast, size, size),dtype=np.float32)# numpy 默认精度是float64， 此处dtype不能省略，否则在推断时由于精度的问题，会出现结果错误或者nan的情况。
+    slow = np.zeros((3, 3, frames_fast // alpha, size, size),dtype=np.float32)
+    if new_height > new_width:
+        # offset along width
+        x_offset = [0] * 3
+        # offset along height
+        y_offset = [0, np.ceil((new_height - size) / 2), new_height - size]
+    else:
+        # width > height
+        x_offset = [0, int(np.ceil((new_width - size) / 2)), new_width - size]
+        y_offset = [0] * 3
+    for i in range(3):
+        # # c, t, h, w
+        fastt = np.array(total_frames[:, :, y_offset[i]:y_offset[i]+size, x_offset[i]:x_offset[i]+size])
+        slowt = np.array(total_frames[:, 0:frames_fast:alpha, y_offset[i]:y_offset[i]+size, x_offset[i]:x_offset[i]+size])
+        fast[i] = np.ascontiguousarray(fastt)
+        slow[i] = np.ascontiguousarray(slowt)
+        
+    print('final slow:{},final fast:{}'.format(slow.shape, fast.shape))
+    return [slow, fast]
+
 
 
 
@@ -197,9 +269,84 @@ def main(method = 'max'):
                 
             print('accuracy: {:6.3f}'.format(correct / total * 100))
 
+def demo(method, cam_id, wid_name):
+    assert method in ['max','sum']
+    """Create a TensorRT engine for ONNX-based slowfast and run inference."""
+    onnx_file_path = 'test_sim.onnx'
+    engine_file_path = "onnx/slowfast_sim.trt"
+    input_video_path = '/home/stephen/workspace/Data/wave_stop/resized_clips/wave_resized/clips59179.mp4'
+
+    # Do inference with TensorRT
+    with get_engine(onnx_file_path, engine_file_path) as engine, engine.create_execution_context() as context:
+        inputs, outputs, bindings, stream = common.allocate_buffers(engine)
+        res = np.zeros((1, 2))
+        while cv2.waitKey(1) != 27:
+            tinput = get_inputs_from_cam(cam_id, wid_name)
+            for i in range(3):
+                inputs[0].host = tinput[0][i]
+                inputs[1].host = tinput[1][i]
+                (trt_outputs, _) = common.do_inference(context, bindings=bindings, inputs=inputs, outputs=outputs, stream=stream)
+                print(trt_outputs[0][:2])
+                if method == 'sum':
+                    res[0] = res[0] + trt_outputs[0][:2].reshape(1,-1)
+                else:
+                    res[0] = np.maximum(res[0], trt_outputs[0][:2].reshape(1,-1))
+            print('res: {}'.format(res[0]))
+            index = int(np.argmax(res[0]))
+            # cv2.putText(frame, 'pred: {}'.format(tlabels[pred_idx]), (20, 40), 
+            #                     fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+            #                     fontScale=0.8, color=(0, 0, 255), thickness=2)
+            print('predict res: {}'.format(class_dict[index]))
+def test_cam(cam_id):
+    wid_name = 'test'
+    cap = cv2.VideoCapture(cam_id)
+    cam_set_width = 1280
+    cam_set_height = 720
+    width = 640 
+    height = 480
+    cap.set(4, cam_set_height) # height
+    cap.set(3, cam_set_width * 2) # width
+    new_width = size
+    new_height = size
+    mean = np.array([0.45, 0.45, 0.45])
+    std = np.array([0.225, 0.225, 0.225])
+    
+    if width < height:
+        new_height = int(math.floor((float(height) / width) * size))
+    else:
+        new_width = int(math.floor((float(width) / height) * size))
+    print('new width: {}, new height: {}'.format(new_width, new_height))
+    while cap.isOpened():
+        res, frame = cap.read()
+        if res :
+            # 取出做相机画面
+            frame = frame[:cam_set_height, :cam_set_width, :]
+            # resize 成训练的大小
+            frame = cv2.resize(frame, (width, height))
+            tmp = cv2.resize(frame, (new_width, new_height))
+            cv2.imshow(wid_name, tmp)
+            cv2.waitKey(25)
+            tmp = cv2.cvtColor(tmp, cv2.COLOR_BGR2RGB)
+            tmp = tmp / 255.0
+            tmp = tmp - mean
+            tmp = tmp / std
+        else :
+            break
+    cv2.destroyAllWindows()
+            
+
+
 
 
 
 if __name__ == '__main__':
 
-    main('sum')
+    # main('sum')
+    # wid_name = 'test'
+    # cv2.namedWindow(wid_name)
+    # demo('sum', 0, wid_name)
+    # cv2.destroyAllWindows()
+    test_cam(0)
+    
+
+
