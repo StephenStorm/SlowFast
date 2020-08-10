@@ -109,6 +109,7 @@ def get_inputs_from_video(video_path):
     return [slow, fast]
 
 def get_inputs_from_cam(cam_id, wid_name):
+    '''从制定相机中读取图像'''
     mean = np.array([0.45, 0.45, 0.45])
     std = np.array([0.225, 0.225, 0.225])
     sampling_rate = 4
@@ -269,35 +270,8 @@ def main(method = 'max'):
                 
             print('accuracy: {:6.3f}'.format(correct / total * 100))
 
-def demo(method, cam_id, wid_name):
-    assert method in ['max','sum']
-    """Create a TensorRT engine for ONNX-based slowfast and run inference."""
-    onnx_file_path = 'test_sim.onnx'
-    engine_file_path = "onnx/slowfast_sim.trt"
-    input_video_path = '/home/stephen/workspace/Data/wave_stop/resized_clips/wave_resized/clips59179.mp4'
-
-    # Do inference with TensorRT
-    with get_engine(onnx_file_path, engine_file_path) as engine, engine.create_execution_context() as context:
-        inputs, outputs, bindings, stream = common.allocate_buffers(engine)
-        res = np.zeros((1, 2))
-        while cv2.waitKey(1) != 27:
-            tinput = get_inputs_from_cam(cam_id, wid_name)
-            for i in range(3):
-                inputs[0].host = tinput[0][i]
-                inputs[1].host = tinput[1][i]
-                (trt_outputs, _) = common.do_inference(context, bindings=bindings, inputs=inputs, outputs=outputs, stream=stream)
-                print(trt_outputs[0][:2])
-                if method == 'sum':
-                    res[0] = res[0] + trt_outputs[0][:2].reshape(1,-1)
-                else:
-                    res[0] = np.maximum(res[0], trt_outputs[0][:2].reshape(1,-1))
-            print('res: {}'.format(res[0]))
-            index = int(np.argmax(res[0]))
-            # cv2.putText(frame, 'pred: {}'.format(tlabels[pred_idx]), (20, 40), 
-            #                     fontFace=cv2.FONT_HERSHEY_SIMPLEX,
-            #                     fontScale=0.8, color=(0, 0, 255), thickness=2)
-            print('predict res: {}'.format(class_dict[index]))
 def test_cam(cam_id):
+    '''用于测试相机'''
     wid_name = 'test'
     cap = cv2.VideoCapture(cam_id)
     cam_set_width = 1280

@@ -196,6 +196,7 @@ class Demo():
 
 
     def infer_with_trt(self, method = 'max'):
+        '''method ： 指定多切片融合的方法'''
         onnx_file_path = 'onnx/test_sim.onnx'
         engine_file_path = "onnx/slowfast_sim.trt"
 
