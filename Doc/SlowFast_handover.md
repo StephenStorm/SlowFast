@@ -8,9 +8,9 @@
 
 ​						https://192.168.1.32/stephen/slowfast.git
 
-#### 说明
+​						已经将范老师加入项目
 
-以下说明中根目录 ' / ' 指的是SlowFast工程的根目录
+#### 说明
 
 安装和使用可以参考工程中相关的指导文件
 
@@ -18,31 +18,31 @@
 
 ### visualization：
 
-​		主要实现推断可视化，使用训练好的模型进行推断时，实时显示当期视频的groundtruth， 预测结果和推断时间，并将对每个视频的可视化结果保存为指定文件夹中的同名文视频。主要的修改在 /tools/test_net.py 文件中，可视化结果的保存目录也被硬编码在该文件中。
+​		主要实现推断可视化，使用训练好的模型进行推断时，实时显示当期视频的groundtruth， 预测结果和推断时间，并将对每个视频的可视化结果保存为指定文件夹中的同名文视频。主要的修改在 tools/test_net.py 文件中，可视化结果的保存目录也被硬编码在该文件中。
 
 ### master
 
 ​		master分之包含工程的所有功能的实现，除推断可视化之外。
 
-参考文件：当前目录下论文： slowfast
+参考文件：当前目录下论文： SlowFast_Network_for_Video_Recognition
 
 ##### 网络结构
 
-![](./Doc/network_architecture.png)
+![](./network_architecture.png)
 
 模型的输入是一个列表：[slow, fast]
 
-其中 slow size : [B, 3, 32, W, H],		fast : [B, 3, 8, W, H]
+其中 slow size : [B, 3, 8, H, W],		fast : [B, 3, 32, H, W]
 
 代码实现中训练用图片的空间维度是： 224 × 224， 测试时是 256×256。
 
-网络的结构与途中网络结构一直，基于resnet50 ，改写而成。
+网络的结构与途中网络结构一致，基于resnet50 ，改写而成。
 
 #### 配置文件
 
 ​		主要配置文件： configs/myconfig/Kinetics/SLOWFAST_8x8_R50*.yaml
 
-​		文件名中带有’local‘的用于本地主机调试使用，不带有‘local’的用于服务器训练和测试使用。配置文件中相关参数的具体含义可以参考  /slowfast/config/defaults.py 文件
+​		文件名中带有’local‘的用于本地主机调试使用，不带有‘local’的用于服务器训练和测试使用。配置文件中相关参数的具体含义可以参考  slowfast/config/defaults.py 文件
 
 #### tensorRT移植
 
